@@ -25,7 +25,7 @@ jobs:
         ELECTRON_SKIP_BINARY_DOWNLOAD: "1"
       shell: bash
     - name: Run fuzz tests  
-      uses: koenhagen/measure-energy-action@v0.16
+      uses: koenhagen/measure-energy-action@v0.19
       with:
         historic: 5
         GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
