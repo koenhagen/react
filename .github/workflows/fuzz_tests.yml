@@ -25,6 +25,5 @@ jobs:
     - name: Run fuzz tests  
       uses: koenhagen/measure-energy-action@v0.20
       with:
-        historic: 5
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: FUZZ_TEST_SEED=$RANDOM yarn test fuzz --ci
