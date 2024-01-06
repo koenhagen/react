@@ -9,6 +9,7 @@
 
 'use strict';
 
+
 export const defaultPointerId = 1;
 export const defaultPointerSize = 23;
 export const defaultBrowserChromeSize = 50;
