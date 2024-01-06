@@ -7,6 +7,7 @@
 
 'use strict';
 
+
 /* eslint-disable no-for-of-loops/no-for-of-loops */
 
 // Hi, if this is your first time editing/reading a Dangerfile, here's a summary:
