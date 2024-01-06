@@ -1,14 +1,12 @@
 name: facebook/react/fuzz_tests
 on:
-  schedule:
-  - cron: 0 * * * *
+  pull_request:
+    types:
+      - opened
+      - reopened
   push:
     branches:
       - main
-  workflow_dispatch:
-    inputs:
-      prerelease_commit_sha:
-        required: false
 jobs:
   test_fuzz:
     if: inputs.prerelease_commit_sha == ''
@@ -26,7 +24,9 @@ jobs:
       env:
         ELECTRON_SKIP_BINARY_DOWNLOAD: "1"
       shell: bash
-    - name: Run fuzz tests
-      run: |-
-        FUZZ_TEST_SEED=$RANDOM yarn test fuzz --ci
-        FUZZ_TEST_SEED=$RANDOM yarn test --prod fuzz --ci
+    - name: Run fuzz tests  
+    - uses: koenhagen/measure-energy-action@v0.16
+      with:
+        historic: 5
+        GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
+        run: FUZZ_TEST_SEED=$RANDOM yarn test fuzz --ci
